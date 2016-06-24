@@ -13,7 +13,9 @@ just minify ionic source code with shell script
 ## Install 
 
 1、download the `minifying.sh` to your project folder and  make sure to give it execute permissions if you’re using Linux or Mac
+
 2、download `01_jshint.js` and move it to somewhere as you like.
+
 3、run command like below:
 
 ```shell
