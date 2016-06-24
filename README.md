@@ -3,9 +3,31 @@ just minify ionic source code with shell script
 
 ## Command description
 ```js
-#  	命令选项				|	说明
-#	-i  				|	安装依赖组件:(当前会判断node_modules目录下是否包含该组件，如果包含，则不下载，否则，下载该依赖组件，区别于：-if),若安装的是cordova_uglify组件，则会自动赋予/hooks/after_prepare/uglify.js文件可执行权限
-#   -f  				|	强制安装依赖组件，不管是否已按钮该组件,若安装的是cordova_uglify组件，则会自动赋予/hooks/after_prepare/uglify.js文件可执行权限
-#   -c					|	拷贝jshint.js文件到:./hooks/before_prepare/目录下(该文件已存在01_jshint.js，则忽略),同时给予该文件可执行权限
-#   -m  				|	拷贝jshint.js文件到:./hooks/before_prepare/目录下(该文件已存在01_jshint.js，则覆盖),同时给予该文件可执行权限
+#  	Command					Desc
+#	-i  					install module only if it does not exist.
+#   -f  					install module whether exists or not.
+#   -c						copy **01_jshint.js** file to ./hooks/before_prepare/ only if it does not exist.
+#   -m  					copy **01_jshint.js** file to ./hooks/before_prepare/ whether exists or not.
+```
+
+## Install 
+
+1、download the `minifying.sh` to your project folder and  make sure to give it execute permissions if you’re using Linux or Mac
+2、download `01_jshint.js` and move it to somewhere as you like.
+3、run command like below:
+
+```shell
+./minifying.sh -i jshint -i async -i cordova-uglify -c ../01_jshint.js
+```
+
+## Note
+* if you uglify the source code, you should make sure that the modules' pathes that `uglify.js` depends on are creact, or you will get some error like below:
+
+```js
+module.js:327
+    throw err;
+    ^
+
+Error: Cannot find module 'src/to/project/node_modules/cordova-uglify/node_modules/1/uglify-js'
+
 ```
