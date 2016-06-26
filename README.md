@@ -43,14 +43,14 @@ Error: Cannot find module 'src/to/project/node_modules/cordova-uglify/node_modul
 
 What you should do is below:
 
-1、 Download the `01_minify.sh` and `02_jshint.js` and put them to `hooks/before_prepare/` folder under your project.
+1、 Download the `01_minify.js` and `02_jshint.js` and put them to `hooks/before_prepare/` folder under your project.
 
 2、Make sure to give the both files execute permissions if you're using Linux or Mac
 
 ### **Note**
 
 ```
-* You should make sure that the number in the *.sh* file is less than *.js* file, you can find *01* is less than *02* above.
+* You should make sure that the number in the *minify.js* file is less than *jshint.js* file, you can find *01* is less than *02* above.
 
 * Make sure to give them execu permission
 ```
